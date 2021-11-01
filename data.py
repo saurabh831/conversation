@@ -9,7 +9,7 @@ connection = pymysql.connect(host=dbServerName, user=dbUser, password=dbPassword
 cursor = connection.cursor()
 
 def insert_(msg1, msg2):
-    sql = ("""INSERT INTO german.zuklien (patterns, responses) VALUES (%s, %s)""")
+    sql = ("""INSERT INTO german.conversation (patterns, responses) VALUES (%s, %s)""")
     ne = (msg1, msg2)
     cursor.execute(sql, ne)
     connection.commit()
@@ -22,7 +22,7 @@ def show_data():
     print(tabulate(rows, headers=['patterns', 'responses'], tablefmt='psql'))
 
 def delete__(msg):
-    qu = """DELETE FROM `german`.`zuklien` WHERE (patterns=%s);"""
+    qu = """DELETE FROM `german`.`conversation` WHERE (patterns=%s);"""
     #qe = "delete from bot where pattern={}".format(msg)
     cursor.execute(qu, msg)
     print("delet")

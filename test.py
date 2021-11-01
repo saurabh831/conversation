@@ -2,27 +2,28 @@ from nltk.corpus import stopwords
 from nltk.stem.lancaster import LancasterStemmer
 import nltk
 from main import prediction_, get_resp
+from data import delete__
 
 stopwords = set(stopwords.words('german'))
 stopwords.add("?")
 stemmer = LancasterStemmer()
 
-def remove_(msg):
-    result = [i for i in msg if not i in stopwords]
-    return result
+def remove_inp(msg):
+    s = ""
+    wrd = stemmer.stem(msg.lower())
+    wo = nltk.word_tokenize(wrd)
+    result = [i for i in wo if not i in stopwords]
+    for i in result:
+        s = s + i + " "
+    return s
 
-s = ""
-a = "ist ein kleineres Unternehmen sicherer gegen Hackerangriffe?"
-wrd = stemmer.stem(a.lower())
-wo = nltk.word_tokenize(wrd)
-print(wo)
-b = remove_(wo)
-print(b)
-for i in b:
-    s = s + i + " "
-print(s)
+a = "kleineres unternehmen sicherer hackerangriffe"
+b = remove_inp(a)
+#print(b)
+
 d = ["3"]
-c = prediction_(s, d)
-e =  get_resp(s, d)
+#c = prediction_(b, d)
+#e = get_resp(b, d)
+delete__(b)
 print(c)
-print(e)
+#print(e)

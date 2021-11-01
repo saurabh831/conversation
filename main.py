@@ -208,5 +208,12 @@ def perform_(ta, lnk):
     if ta == "open":
         webbrowser.open(lnk)
 
-
+def remove_inp(msg):
+    s = ""
+    wrd = stemmer.stem(msg.lower())
+    wo = nltk.word_tokenize(wrd)
+    result = [i for i in wo if not i in stopwords]
+    for i in result:
+        s = s + i + " "
+    return s
 

@@ -1,6 +1,6 @@
 {"intents": [
         {"tag": ["3", "AI aktivieren, Thema erkennen,"],
-         "patterns": ["ist ein kleineres Unternehmen sicherer gegen Hackerangriffe?", "warum werden kleinere Unternehmen oft gehackt?", "werden kleinere Unternehmen gehackt?"],
+         "patterns": ["kleineres unternehmen sicherer hackerangriffe", "warum kleinere unternehmen oft gehackt", "kleinere unternehmen gehackt"],
          "responses": ["Hallo,\ndie grunds\u00e4tzliche Frage ist ja immer, was bedeutet \"klein\"?\nEntgegen der Annahme vieler Unternehmer wei\u00df ein Hacker in der Regel nicht wen er angreift.\nEs sind in der Regel Zufallstreffer, weil man von einem Scanner entdeckt oder ein falscher Klick in einer Mail gemacht wird.\nDarf ich Ihnen hier ein Beispiel zeigen?"],
          "context_set": ["B8", "B9"],
          "link": [""],

@@ -1,8 +1,7 @@
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 from tkinter import *
-from main import get_resp, get_contxt, prediction_, context__
-#from data import insert_, show_data, delete__
+from main import get_resp, get_contxt, prediction_, context__, remove_inp
 #from csv import writer
 
 stemmer = LancasterStemmer()
@@ -95,11 +94,12 @@ class ChatApplication:
         self.text_widget.configure(state=DISABLED)
 
         mo = ret
-        resp = prediction_(msg, ret)
-        ret = context__(msg, ret)
+        input = remove_inp(msg)
+        resp = prediction_(input, ret)
+        ret = context__(input, ret)
         if resp == "nothing":
-            resp = get_resp(msg, mo)
-            ret = get_contxt(msg, mo)
+            resp = get_resp(input, mo)
+            ret = get_contxt(input, mo)
 
         msg2 = f"{bot}: {resp}\n\n"
 
